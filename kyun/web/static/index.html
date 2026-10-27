@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyun — why is the code like this</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true">?</span><span>Kyun</span></div>
+  <p class="repo" id="repo">Loading the decision graph…</p>
+</header>
+
+<main>
+  <section class="ask" aria-labelledby="ask-title">
+    <h1 id="ask-title">Ask why the code is like this.</h1>
+    <p class="lede">Answers come from the repository's own history: commits, pull requests and release notes, linked into a graph of decisions. Every answer shows its evidence. When the history doesn't hold a reason, Kyun says so.</p>
+    <form id="ask-form" class="ask-form" autocomplete="off">
+      <label for="q" class="sr">Your question</label>
+      <input id="q" name="q" type="text" placeholder="Why doesn't requests cache a default SSLContext?" spellcheck="false">
+      <button type="submit">Ask</button>
+    </form>
+    <div class="examples" id="examples" aria-label="Example questions"></div>
+  </section>
+
+  <section id="result" class="result" hidden>
+    <div class="answer-col">
+      <div class="status" id="status"></div>
+      <p class="headline" id="headline"></p>
+      <div id="premise"></div>
+
+      <div class="block" id="why-block" hidden>
+        <h2>Why, as the maintainers recorded it</h2>
+        <div id="why"></div>
+      </div>
+
+      <div class="block" id="chain-block" hidden>
+        <h2>How it got this way</h2>
+        <ol class="strata" id="chain"></ol>
+      </div>
+
+      <div class="block" id="ask-block" hidden>
+        <h2>Person to ask</h2>
+        <ul class="people" id="people"></ul>
+      </div>
+
+      <details class="block conf" id="conf-block">
+        <summary id="conf-summary">How sure is this?</summary>
+        <div id="conf-parts"></div>
+      </details>
+    </div>
+
+    <aside class="side-col">
+      <div class="panel">
+        <h2>The part of the graph that answered</h2>
+        <div id="graph" class="graph" role="img" aria-label="Graph of the decisions, code and people used in this answer"></div>
+        <ul class="legend">
+          <li><i class="d live"></i>Current decision</li>
+          <li><i class="d old"></i>Overridden decision</li>
+          <li><i class="d code"></i>Code</li>
+          <li><i class="d note"></i>Release note</li>
+          <li><i class="d person"></i>Person</li>
+        </ul>
+      </div>
+      <div class="panel baseline">
+        <h2>What a plain text search returns</h2>
+        <p class="hint">Same commits and release notes, ranked by keyword match, no graph.</p>
+        <div id="baseline"></div>
+      </div>
+      <details class="panel cypher">
+        <summary>The same traversal in Cypher (Neo4j)</summary>
+        <pre id="cypher"></pre>
+      </details>
+    </aside>
+  </section>
+
+  <section class="risk" aria-labelledby="risk-title">
+    <h2 id="risk-title">Knowledge at risk</h2>
+    <p class="lede small">Code whose decisions were made only by people who haven't committed in 18 months. If something breaks here, nobody on the current team holds the reason.</p>
+    <table id="risk-table"><thead><tr><th>Code</th><th>Decisions</th><th>Only known by</th><th>Last seen</th></tr></thead><tbody></tbody></table>
+    <h3>Release notes that are now wrong</h3>
+    <ul id="stale" class="stale"></ul>
+  </section>
+</main>
+
+<footer>
+  <p>Kyun reads git history and the in-repo changelog. No model writes the answers: every sentence above is assembled from linked evidence.</p>
+</footer>
+
+<script src="/static/vendor/cytoscape.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

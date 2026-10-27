@@ -1,0 +1,20 @@
+{
+  "repo": "pallets/flask",
+  "note": "HELD-OUT SET. Written from Flask's CHANGES.rst and git log before Kyun was run on Flask; no engine changes were made after scoring. Gold is a release-note version plus a phrase the evidence must contain.",
+  "questions": [
+    {"id": "H01", "category": "rationale", "q": "Why does redirect return 303 instead of 302?", "status": "answered", "gold_note": ["3.2.0", "303"]},
+    {"id": "H02", "category": "rationale", "q": "Why is should_ignore_error deprecated?", "status": "answered", "gold_note": ["3.2.0", "should_ignore_error"]},
+    {"id": "H03", "category": "rationale", "q": "Why was FLASK_ENV deprecated?", "status": "answered", "gold_note": ["2.2.0", "FLASK_ENV"]},
+    {"id": "H04", "category": "rationale", "q": "Why is before_first_request deprecated?", "status": "answered", "gold_note": ["2.2.0", "before_first_request"]},
+    {"id": "H05", "category": "reversal", "q": "Why was from flask import Markup restored?", "status": "any", "gold_note": ["2.3.1", "Markup"]},
+    {"id": "H06", "category": "reversal", "q": "Why was Config.from_json re-added?", "status": "answered", "gold_note": ["2.0.1", "from_json"]},
+    {"id": "H07", "category": "reversal", "q": "Why is the URL matched after the session is loaded?", "status": "answered", "gold_note": ["2.0.1", "session is available"]},
+    {"id": "H08", "category": "no reason recorded", "q": "Why does Flask use flit_core instead of setuptools?", "status": "what_not_why", "gold_note": ["2.3.3", "flit_core"], "label_correction": "Originally labelled 3.0.0 by mistake; CHANGES.rst puts this note in 2.3.3. Corrected after scoring and disclosed."},
+    {"id": "H09", "category": "dependency", "q": "Why are signals always available now?", "status": "any", "gold_note": ["2.3.0", "blinker"]},
+    {"id": "H10", "category": "refusal", "q": "Why does Flask use Kubernetes for deployment?", "status": "not_in_graph"},
+    {"id": "H11", "category": "refusal", "q": "Why was the GraphQL blueprint removed?", "status": "not_in_graph"},
+    {"id": "H12", "category": "who to ask", "q": "Who should I ask about app.py?", "status": "answered", "people": ["David Lord"], "baseline": false},
+    {"id": "H13", "category": "lifecycle", "q": "Why is __version__ deprecated?", "status": "any", "gold_note": ["3.0.0|3.2.0", "__version__"]},
+    {"id": "H14", "category": "rationale", "q": "Why are json_encoder and json_decoder only passed to dumps when they are custom?", "status": "answered", "gold_note": ["2.0.2", "performance"]}
+  ]
+}

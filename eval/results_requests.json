@@ -1,0 +1,519 @@
+{
+  "repo": "psf/requests",
+  "summary": {
+    "questions": 21,
+    "kyun_correct_pct": 100.0,
+    "kyun_correct_on_baseline_set_pct": 100.0,
+    "baseline_correct_pct": 26.3,
+    "refusals_correct": "3/3",
+    "baseline_answered_unanswerable": "3/3",
+    "supersession_flagged": "4/4",
+    "baseline_quoted_overridden": "1/4",
+    "median_ms": 1
+  },
+  "rows": [
+    {
+      "id": "Q01",
+      "category": "supersession",
+      "q": "Why doesn't requests cache a default SSLContext?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true,
+        "flags the overridden decision": true
+      },
+      "status": "answered",
+      "headline": "Revert caching a default SSLContext — decided 2025-06-13 in #6767 by Nate Prewitt. This overrides an earlier decision (\"Avoid reloading root certificates to improve concurrent performance\", 2024-05-15), which you may still find quoted in older docs.",
+      "confidence": 0.95,
+      "live": "dec:pr:6767",
+      "ms": 2,
+      "baseline": {
+        "ok": true,
+        "note": "right decision",
+        "top": {
+          "id": "commit:90fee0876aea97c639b3bf698d83a12876d2f160",
+          "date": "2025-06-13",
+          "score": 31.8,
+          "text": "Revert caching a default SSLContext (#6767)"
+        }
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "supersession (docs trap)",
+      "q": "Does requests reuse a global SSLContext when verify is True?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true,
+        "flags the overridden decision": true
+      },
+      "status": "answered",
+      "headline": "Revert caching a default SSLContext — decided 2025-06-13 in #6767 by Nate Prewitt. This overrides an earlier decision (\"Avoid reloading root certificates to improve concurrent performance\", 2024-05-15), which you may still find quoted in older docs.",
+      "confidence": 0.97,
+      "live": "dec:pr:6767",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "quoted the overridden decision",
+        "top": {
+          "id": "rn:2.32.0:33",
+          "date": "2024-05-20",
+          "score": 22.37,
+          "text": "2.32.0: `verify=True` now reuses a global SSLContext which should improve request time variance between first and subsequent requests. It should also minimize certificate load time on Windows systems when using a Python version built with OpenSSL 3.x. (#6667)"
+        }
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "rationale",
+      "q": "Why does requests use charset_normalizer instead of chardet?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Switch LGPL'd chardet for MIT licensed charset_normalizer — decided 2021-07-06 in #5797 by Ash Berlin-Taylor.",
+      "confidence": 0.83,
+      "live": "dec:pr:5797",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:e9b1217cff710307e5de9fb8ce2fc21eb79acec3",
+          "date": "2023-10-31",
+          "score": 20.59,
+          "text": "added handling for chardet and charset_normalizer imports"
+        }
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "rationale + rename",
+      "q": "Why is get_connection deprecated?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Move _get_connection to get_connection_with_tls_context — decided 2024-05-21 in #6710 by Nate Prewitt. This overrides an earlier decision (\"Use TLS settings in selecting connection pool\", 2024-03-11), which you may still find quoted in older docs.",
+      "confidence": 0.99,
+      "live": "dec:pr:6710",
+      "ms": 2,
+      "baseline": {
+        "ok": true,
+        "note": "right decision",
+        "top": {
+          "id": "commit:aa1461b68aa73e2f6ec0e78c8853b635c76fd099",
+          "date": "2024-05-21",
+          "score": 17.71,
+          "text": "Move _get_connection to get_connection_with_tls_context"
+        }
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "incident",
+      "q": "What changed in the code because of CVE-2024-35195?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Move _get_connection to get_connection_with_tls_context — decided 2024-05-21 in #6710 by Nate Prewitt. This overrides an earlier decision (\"Use TLS settings in selecting connection pool\", 2024-03-11), which you may still find quoted in older docs.",
+      "confidence": 1.0,
+      "live": "dec:pr:6710",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:046302c0cbe94588cdaf6460dfc49219b49db389",
+          "date": "2014-06-08",
+          "score": 9.28,
+          "text": "indentation change for code review"
+        }
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "rationale",
+      "q": "Why is the requests[security] extra a no-op?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "The `requests[security]` extra has been converted to a no-op install — decided 2021-07-13 in the 2.26.0 release notes by Nate Prewitt.",
+      "confidence": 0.45,
+      "live": "dec:rn:2.26.0:82",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "rn:2.4.1:299",
+          "date": "2014-09-09",
+          "score": 14.13,
+          "text": "2.4.1: Now has a \"security\" package extras set, `$ pip install requests[security]`"
+        }
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "incident",
+      "q": "Why was proxy credential handling changed in 2.31.0?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential forwarding of `Proxy-Authorization` headers to destination servers when following HTTPS redirects — decided 2023-05-22 in the 2.31.0 release notes by Nate Prewitt.",
+      "confidence": 0.79,
+      "live": "dec:rn:2.31.0:45",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:d437c338d0bfe4a88d9c3efa1a1802603ee9cc97",
+          "date": "2013-02-06",
+          "score": 12.15,
+          "text": "Add Proxy-Auth header when proxies have credentials."
+        }
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "rationale",
+      "q": "Why does pinning for chardet and idna use the major version?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Pinning for `chardet` and `idna` now uses major version instead of minor — decided 2020-02-19 in the 2.23.0 release notes by Nate Prewitt.",
+      "confidence": 0.86,
+      "live": "dec:rn:2.23.0:95",
+      "ms": 1,
+      "baseline": {
+        "ok": true,
+        "note": "right decision",
+        "top": {
+          "id": "rn:2.23.0:95",
+          "date": "2020-02-19",
+          "score": 17.62,
+          "text": "2.23.0: Pinning for `chardet` and `idna` now uses major version instead of minor. This hopefully reduces the need for releases every time a dependency is updated."
+        }
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "supersession",
+      "q": "Why was the default User-Agent changed?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "answered",
+      "headline": "Update default user-agent (#2785) — decided 2015-10-05 in #2803 by Ian Cordasco, Alexandre Sieira. This overrides an earlier decision (\"Have User Agent include more details\", 2012-07-08), which you may still find quoted in older docs.",
+      "confidence": 0.85,
+      "live": "dec:pr:2803",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:260e32a7c329c868ae59c045ef8521f6f9003778",
+          "date": "2011-07-23",
+          "score": 18.9,
+          "text": "default user agent!"
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "no reason recorded",
+      "q": "Why does the chardet upper limit keep increasing?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"Increase chardet upper limit to 8\" on 2026-03-03 in b2a1d33f by Dan Blanchard — but nobody wrote down why. Ask Dan Blanchard.",
+      "confidence": 0.44,
+      "live": "dec:commit:b2a1d33f571518ca9a6148e7da787cc5827f897a",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:4bd79e397304d46dfccd76f36c07f66c0295ff82",
+          "date": "2026-02-22",
+          "score": 31.82,
+          "text": "Increase chardet upper limit to 7"
+        }
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "no reason recorded",
+      "q": "Why is DEFAULT_POOLSIZE 10?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "what_not_why",
+      "headline": "requests.adapters.DEFAULT_POOLSIZE was introduced on 2012-12-15 in \"base adapter\" by Kenneth Reitz (value history: 10 since 2012-12-15). No commit, pull request or release note records why. Ask Kenneth Reitz.",
+      "confidence": 0.4,
+      "live": "dec:commit:88d41430186b98166e20f7b6d8f100c72fcd07b3",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": null
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "false premise",
+      "q": "Why is the retry limit three?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true,
+        "catches the premise": true
+      },
+      "status": "what_not_why",
+      "headline": "Check the premise: requests.adapters.DEFAULT_RETRIES is 0, not 3. requests.adapters.DEFAULT_RETRIES was introduced on 2012-12-15 in \"base adapter\" by Kenneth Reitz (value history: 0 since 2012-12-15). No commit, pull request or release note records why. Ask Ian Cordasco.",
+      "confidence": 0.4,
+      "live": "dec:commit:88d41430186b98166e20f7b6d8f100c72fcd07b3",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:0cd9f5855e395c04bf99a68e0059784fb9a90cf3",
+          "date": "2015-04-10",
+          "score": 10.31,
+          "text": "Keepers of the Three Crystals."
+        }
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "entity lifecycle",
+      "q": "Why was get_os_ca_bundle_path removed?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "what_not_why",
+      "headline": "requests.utils.get_os_ca_bundle_path was introduced on 2012-04-22 in \"attempt to use the OS's certificate bundle\" by Shivaram Lingamneni. It was removed on 2012-12-23 in \"clean up code support for OS certificate bundles\" by Shivaram Lingamneni. No commit, pull request or release note records why. Ask Shivaram Lingamneni.",
+      "confidence": 0.4,
+      "live": "dec:pr:1065",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:8b773a4fed7fa58be984d55511f8e9247cfa4202",
+          "date": "2019-04-07",
+          "score": 4.44,
+          "text": "[remove] remove invalid field in docete Remove 'Connection': 'close' field in 'headers'"
+        }
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "revert",
+      "q": "Why was 'Use urllib for chunked requests' reverted?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true,
+        "flags the overridden decision": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"Revert \"Use urllib for chunked requests\"\" on 2020-02-18 in 24bcb9ea by Nate Prewitt — but nobody wrote down why. Ask Nate Prewitt.",
+      "confidence": 0.25,
+      "live": "dec:commit:24bcb9eab60d2db5e71979ea391b3e5675daff1f",
+      "ms": 1,
+      "baseline": {
+        "ok": true,
+        "note": "right decision",
+        "top": {
+          "id": "commit:24bcb9eab60d2db5e71979ea391b3e5675daff1f",
+          "date": "2020-02-18",
+          "score": 20.22,
+          "text": "Revert \"Use urllib for chunked requests\" This reverts commit 2da7fe08586aeaff614c017a9a834a22c937384a."
+        }
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "revert",
+      "q": "Why was restricting URL preparation to HTTP/HTTPS reverted?",
+      "ok": true,
+      "checks": {
+        "right decision": true,
+        "flags the overridden decision": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"Revert \"Restrict URL preparation to HTTP/HTTPS\"\" on 2016-12-01 in #3738 by Cory Benfield — but nobody wrote down why. Ask Nate Prewitt.",
+      "confidence": 0.36,
+      "live": "dec:pr:3738",
+      "ms": 3,
+      "baseline": {
+        "ok": true,
+        "note": "right decision",
+        "top": {
+          "id": "commit:402a55b647c852553ff6967403b12f6b6efc0fd8",
+          "date": "2016-11-30",
+          "score": 30.15,
+          "text": "Revert \"Restrict URL preparation to HTTP/HTTPS\" This reverts commit 34af72c87d79bd8852e8564c050dd7711c6a08d6."
+        }
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "no reason recorded",
+      "q": "Why did requests drop Python 2.7?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right decision": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"⚠️ Requests has officially dropped support for Python 2.7. ⚠️ (#6091)\" on 2022-06-09 in the 2.28.0 release notes by Nate Prewitt — but nobody wrote down why. Ask Nate Prewitt.",
+      "confidence": 0.26,
+      "live": "dec:rn:2.28.0:54",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "rn:2.26.0:83",
+          "date": "2021-07-13",
+          "score": 12.9,
+          "text": "2.26.0: Requests has officially dropped support for Python 3.5. (#5867)"
+        }
+      }
+    },
+    {
+      "id": "Q17",
+      "category": "refusal",
+      "q": "Why does requests not support HTTP/2?",
+      "ok": true,
+      "checks": {
+        "status": true
+      },
+      "status": "not_in_graph",
+      "headline": "Nothing in this repository's history mentions 'HTTP/2'. I can't tell you why, and I won't guess.",
+      "confidence": 0.0,
+      "live": null,
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "returned an answer anyway",
+        "top": {
+          "id": "commit:640538adcb81fd5930eadb1ecf47dcb8a0a62ab3",
+          "date": "2012-02-16",
+          "score": 8.91,
+          "text": "Fail if unsupported schemas are used. requests only supports http and https. This change enforces that."
+        }
+      }
+    },
+    {
+      "id": "Q18",
+      "category": "refusal",
+      "q": "Why was GraphQL support removed?",
+      "ok": true,
+      "checks": {
+        "status": true
+      },
+      "status": "not_in_graph",
+      "headline": "Nothing in this repository's history mentions 'GraphQL'. I can't tell you why, and I won't guess.",
+      "confidence": 0.0,
+      "live": null,
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "returned an answer anyway",
+        "top": {
+          "id": "rn:1.2.0:397",
+          "date": "2013-03-31",
+          "score": 7.97,
+          "text": "1.2.0: certifi support was removed"
+        }
+      }
+    },
+    {
+      "id": "Q19",
+      "category": "refusal",
+      "q": "Why does requests use Rust for parsing?",
+      "ok": true,
+      "checks": {
+        "status": true
+      },
+      "status": "not_in_graph",
+      "headline": "I could not find a recorded decision that answers this in the repository's history. I won't guess.",
+      "confidence": 0.0,
+      "live": null,
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "returned an answer anyway",
+        "top": {
+          "id": "rn:2.5.0:277",
+          "date": "2014-12-01",
+          "score": 7.45,
+          "text": "2.5.0: Only parse the URL once (\\#2353)"
+        }
+      }
+    },
+    {
+      "id": "Q20",
+      "category": "who to ask",
+      "q": "Who should I ask about adapters.py?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right person": true
+      },
+      "status": "answered",
+      "headline": "Ask Ian Cordasco about adapters.py: most recent substantive work there, last active in the repository on 2026-05-31.",
+      "confidence": 0.8,
+      "live": null,
+      "ms": 1,
+      "baseline": null
+    },
+    {
+      "id": "Q21",
+      "category": "who to ask",
+      "q": "Who knows the cookie handling code?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right person": true
+      },
+      "status": "answered",
+      "headline": "Ask Nate Prewitt about src/requests/cookies.py: most recent substantive work there, last active in the repository on 2026-08-24. (Kenneth Reitz also knows it but has not committed since 2019-09-23.)",
+      "confidence": 0.8,
+      "live": null,
+      "ms": 2,
+      "baseline": null
+    }
+  ]
+}

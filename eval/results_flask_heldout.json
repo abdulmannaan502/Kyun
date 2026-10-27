@@ -1,0 +1,352 @@
+{
+  "repo": "pallets/flask",
+  "summary": {
+    "questions": 14,
+    "kyun_correct_pct": 78.6,
+    "kyun_correct_on_baseline_set_pct": 76.9,
+    "baseline_correct_pct": 38.5,
+    "refusals_correct": "2/2",
+    "baseline_answered_unanswerable": "2/2",
+    "supersession_flagged": "0/0",
+    "baseline_quoted_overridden": "0/0",
+    "median_ms": 2
+  },
+  "rows": [
+    {
+      "id": "H01",
+      "category": "rationale",
+      "q": "Why does redirect return 303 instead of 302?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "``redirect`` returns a ``303`` status code by default instead of ``302`` — decided 2026-10-07 in the 3.2.0 release notes by David Lord.",
+      "confidence": 0.86,
+      "live": "dec:rn:3.2.0:7",
+      "ms": 3,
+      "baseline": {
+        "ok": true,
+        "note": "right evidence",
+        "top": {
+          "id": "rn:3.2.0:7",
+          "date": "2026-10-07",
+          "score": 9.81,
+          "text": "3.2.0: ``redirect`` returns a ``303`` status code by default instead of ``302``. This tells the client to always switch to ``GET``, rather than only switching ``POST`` to ``GET``. This preserves the current behavior of ``GET`` and ``POST`` redirects, and is also correct for frontend libraries such a"
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "category": "rationale",
+      "q": "Why is should_ignore_error deprecated?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "The ``should_ignore_error`` is deprecated — decided 2026-10-07 in the 3.2.0 release notes by David Lord.",
+      "confidence": 0.83,
+      "live": "dec:rn:3.2.0:5",
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:c77a5203438fe772d41f6a47303ad3f57a4efe6d",
+          "date": "2026-01-24",
+          "score": 26.74,
+          "text": "deprecate should_ignore_error"
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "category": "rationale",
+      "q": "Why was FLASK_ENV deprecated?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "deprecate `FLASK_ENV` and `app.env` — decided 2022-08-01 in #4720 by David Lord. This overrides an earlier decision (\"cli app env\", 2022-06-17), which you may still find quoted in older docs.",
+      "confidence": 0.73,
+      "live": "dec:pr:4720",
+      "ms": 2,
+      "baseline": {
+        "ok": true,
+        "note": "right evidence",
+        "top": {
+          "id": "commit:ef95998d79eed3b8350d8db825e3d98f25c179f2",
+          "date": "2022-08-01",
+          "score": 22.63,
+          "text": "deprecate FLASK_ENV"
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "category": "rationale",
+      "q": "Why is before_first_request deprecated?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "``before_first_request`` is deprecated — decided 2022-08-01 in the 2.2.0 release notes by David Lord.",
+      "confidence": 0.79,
+      "live": "dec:rn:2.2.0:86",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:96c97dec095f204b8a557c5ea804afdd329e3c43",
+          "date": "2022-06-06",
+          "score": 24.31,
+          "text": "deprecate before_first_request"
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "category": "reversal",
+      "q": "Why was from flask import Markup restored?",
+      "ok": true,
+      "checks": {
+        "right evidence": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"Restore deprecated ``from flask import Markup``. :issue:`5084`\" on 2023-04-25 in the 2.3.1 release notes by Lucas Werkmeister — but nobody wrote down why. Ask Lucas Werkmeister.",
+      "confidence": 0.44,
+      "live": "dec:rn:2.3.1:49",
+      "ms": 1,
+      "baseline": {
+        "ok": true,
+        "note": "right evidence",
+        "top": {
+          "id": "rn:2.3.1:49",
+          "date": "2023-04-25",
+          "score": 22.6,
+          "text": "2.3.1: Restore deprecated ``from flask import Markup``. :issue:`5084`"
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "category": "reversal",
+      "q": "Why was Config.from_json re-added?",
+      "ok": false,
+      "checks": {
+        "status": true,
+        "right evidence": false
+      },
+      "status": "answered",
+      "headline": "Support loading configuration from text files — decided 2019-10-18 in #3398 by pgjones, David Lord.",
+      "confidence": 0.65,
+      "live": "dec:pr:3398",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "rn:0.11:313",
+          "date": "2016-05-29",
+          "score": 24.62,
+          "text": "0.11: Added ``Config.from_json``."
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "category": "reversal",
+      "q": "Why is the URL matched after the session is loaded?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "Revert a change to the order that URL matching was done — decided 2021-05-21 in the 2.0.1 release notes by Pedro Torcatt.",
+      "confidence": 0.85,
+      "live": "dec:rn:2.0.1:144",
+      "ms": 3,
+      "baseline": {
+        "ok": true,
+        "note": "right evidence",
+        "top": {
+          "id": "rn:2.0.1:144",
+          "date": "2021-05-21",
+          "score": 21.65,
+          "text": "2.0.1: Revert a change to the order that URL matching was done. The URL is again matched after the session is loaded, so the session is available in custom URL converters. :issue:`4053`"
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "category": "no reason recorded",
+      "q": "Why does Flask use flit_core instead of setuptools?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right evidence": true
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"Use ``flit_core`` instead of ``setuptools`` as build backend\" on 2023-08-21 in the 2.3.3 release notes by David Lord — but nobody wrote down why. Ask David Lord.",
+      "confidence": 0.43,
+      "live": "dec:rn:2.3.3:45",
+      "ms": 1,
+      "baseline": {
+        "ok": true,
+        "note": "right evidence",
+        "top": {
+          "id": "rn:2.3.3:45",
+          "date": "2023-08-21",
+          "score": 28.04,
+          "text": "2.3.3: Use ``flit_core`` instead of ``setuptools`` as build backend."
+        }
+      }
+    },
+    {
+      "id": "H09",
+      "category": "dependency",
+      "q": "Why are signals always available now?",
+      "ok": false,
+      "checks": {
+        "right evidence": false
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"remove deprecated code\" on 2023-08-16 in 04994df5 by David Lord — but nobody wrote down why. Ask David Lord.",
+      "confidence": 0.35,
+      "live": "dec:commit:04994df59f2f642e52ba46ca656088bcdb931262",
+      "ms": 3,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:9cb1a7a52d7927071e2b737d52f902f006969e82",
+          "date": "2023-04-13",
+          "score": 19.55,
+          "text": "blinker is required, signals are always available"
+        }
+      }
+    },
+    {
+      "id": "H10",
+      "category": "refusal",
+      "q": "Why does Flask use Kubernetes for deployment?",
+      "ok": true,
+      "checks": {
+        "status": true
+      },
+      "status": "not_in_graph",
+      "headline": "I could not find a recorded decision that answers this in the repository's history. I won't guess.",
+      "confidence": 0.0,
+      "live": null,
+      "ms": 1,
+      "baseline": {
+        "ok": false,
+        "note": "returned an answer anyway",
+        "top": {
+          "id": "commit:2ea77c278282f04a8a18c3ced88ef1e048f8ed4a",
+          "date": "2022-06-12",
+          "score": 7.92,
+          "text": "rewrite deployment docs"
+        }
+      }
+    },
+    {
+      "id": "H11",
+      "category": "refusal",
+      "q": "Why was the GraphQL blueprint removed?",
+      "ok": true,
+      "checks": {
+        "status": true
+      },
+      "status": "not_in_graph",
+      "headline": "Nothing in this repository's history mentions 'GraphQL'. I can't tell you why, and I won't guess.",
+      "confidence": 0.0,
+      "live": null,
+      "ms": 3,
+      "baseline": {
+        "ok": false,
+        "note": "returned an answer anyway",
+        "top": {
+          "id": "commit:0e44cca8e32f17e78f73a127ebe8d8c627c3fe13",
+          "date": "2015-04-11",
+          "score": 8.87,
+          "text": "Removed 500 not being registerable for blueprints"
+        }
+      }
+    },
+    {
+      "id": "H12",
+      "category": "who to ask",
+      "q": "Who should I ask about app.py?",
+      "ok": true,
+      "checks": {
+        "status": true,
+        "right person": true
+      },
+      "status": "answered",
+      "headline": "Ask David Lord about app.py: most recent substantive work there, last active in the repository on 2026-10-07.",
+      "confidence": 0.8,
+      "live": null,
+      "ms": 1,
+      "baseline": null
+    },
+    {
+      "id": "H13",
+      "category": "lifecycle",
+      "q": "Why is __version__ deprecated?",
+      "ok": true,
+      "checks": {
+        "right evidence": true
+      },
+      "status": "answered",
+      "headline": "Deprecate the ``__version__`` attribute — decided 2023-09-30 in the 3.0.0 release notes by David Lord.",
+      "confidence": 0.81,
+      "live": "dec:rn:3.0.0:39",
+      "ms": 2,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "commit:293041a290178dc1d526075372960c3ca589d366",
+          "date": "2023-08-29",
+          "score": 15.17,
+          "text": "deprecate __version__ attribute"
+        }
+      }
+    },
+    {
+      "id": "H14",
+      "category": "rationale",
+      "q": "Why are json_encoder and json_decoder only passed to dumps when they are custom?",
+      "ok": false,
+      "checks": {
+        "status": false,
+        "right evidence": false
+      },
+      "status": "what_not_why",
+      "headline": "The history shows what happened — \"remove deprecated code\" on 2023-08-16 in 04994df5 by David Lord — but nobody wrote down why. Ask David Lord.",
+      "confidence": 0.37,
+      "live": "dec:commit:04994df59f2f642e52ba46ca656088bcdb931262",
+      "ms": 4,
+      "baseline": {
+        "ok": false,
+        "note": "wrong evidence",
+        "top": {
+          "id": "rn:2.2.1:74",
+          "date": "2022-08-03",
+          "score": 25.43,
+          "text": "2.2.1: Setting or accessing ``json_encoder`` or ``json_decoder`` raises a deprecation warning. :issue:`4732`"
+        }
+      }
+    }
+  ]
+}

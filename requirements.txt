@@ -1,0 +1,4 @@
+flask>=2.2
+# optional
+# neo4j>=5.0        # kyun push / pull (AuraDB)
+# pytest            # tests

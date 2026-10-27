@@ -1,0 +1,23 @@
+[project]
+name = "kyun"
+version = "0.1.0"
+description = "Ask a codebase why it is the way it is: a graph of decisions built from git history."
+requires-python = ">=3.10"
+dependencies = ["flask>=2.2"]
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+neo4j = ["neo4j>=5.0"]
+dev = ["pytest"]
+
+[project.scripts]
+kyun = "kyun.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["kyun*"]
+
+[tool.setuptools.package-data]
+"kyun.web" = ["static/*", "static/vendor/*", "static/vendor/fonts/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
